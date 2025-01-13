@@ -142,8 +142,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* About Section */}
-      <motion.section
+    {/* About Section */}
+    <motion.section
         ref={aboutRef}
         className={`${sectionPadding} text-center flex flex-col items-center`}
         initial="hidden"
@@ -153,7 +153,14 @@ export default function Home() {
       >
         <h2 className="text-5xl font-extrabold text-gray-800">About Me</h2>
         <p className="mt-4 font-extrabold text-gray-600 max-w-2xl">
-          I started studying Business Information Technology at Haaga-Helia University of Applied Sciences in 2021, and I recently graduated with a Bachelor’s degree. This portfolio showcases the skills I’ve developed and the projects I’ve worked on along the way.
+          I started studying Business Information Technology at Haaga-Helia University of Applied Sciences in 2021, and I recently graduated with a Bachelor’s degree. This portfolio showcases the skills I’ve developed and the projects I’ve worked on along the way. 🌟 <br />
+          <br></br>
+          During my studies, I completed a six-month internship at Autolle.com, where I was part of the software development team. I worked on a multiplatform application, focusing on frontend development and gaining hands-on experience in building, testing, and publishing mobile apps for both Android and iOS platforms. This experience gave me a deeper understanding of the entire software development lifecycle and solidified my passion for creating user-friendly and functional applications. 🛠️<br></br>
+          <br></br>
+          Overall, I’ve been diving into full-stack development, exploring both frontend and backend to expand my skillset. Each challenge has been an opportunity to learn, and I love the process of turning ideas into creative solutions. 💡
+          <br></br>
+          <br></br>
+          Take a look around and explore the projects I’ve worked on and the skills I’ve developed. I’m currently looking for exciting opportunities to kickstart my career as a software developer. If you’re hiring or have a project in mind, don’t hesitate to reach out—I’d love to bring my skills and passion to your team! 🤝
         </p>
       </motion.section>
 
@@ -229,7 +236,7 @@ export default function Home() {
       >
         <h2 className="text-5xl font-extrabold text-gray-800">Contact Me</h2>
         <p className="mt-4 font-extrabold text-gray-600 max-w-2xl">
-          I’m currently seeking a position as a software developer. Let’s connect!
+        I’m currently seeking for a position as a software developer. I can do other ICT-related stuff as well. If you have any questions or would like to work together, feel free to reach out!
         </p>
         <div className="mt-12">
           <a
