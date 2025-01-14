@@ -12,7 +12,7 @@ export default function Home() {
 
   const scrollToSection = (ref) => {
     window.scrollTo({
-      top: ref.current.offsetTop - 80, // Offset for secondary navbar height
+      top: ref.current.offsetTop - 80, 
       behavior: "smooth",
     });
   };
@@ -22,20 +22,24 @@ export default function Home() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
-  const sectionPadding = "py-20"; // Reusable padding for sections
+  const sectionPadding = "py-20"; 
 
   const projects = [
     {
-      image: "/siirtoautot.jpg",
+      image: "/siirtoautot_esim.jpg",
       title: "Siirtoautot",
-      description: "A cross-platform vehicle sharing app built with Next.js and Ruby on Rails.",
-      link: "https://siirtoautot.com",
+      description: (
+        <>
+          Siirtoautot is a cross-platform vehicle-sharing application that allows users to search for rides across Finland and transfer vehicles free of charge from one location to another. The frontend is built with TypeScript and Next.js, while the backend uses Ruby on Rails and a RESTful API. The app also implements Progressive Web App (PWA) technology, and supports both Android and iOS platforms using a shared codebase. <b><br></br><span className="italic">Please note that the code for this project cannot be shared, as it is owned by the company.</span></b>
+        </>
+      ),
+            link: "https://siirtoautot.com",
     },
     {
       image: "/portfoliopage.jpg",
       title: "Personal Portfolio",
-      description: "A personal portfolio website built with Next.js and Tailwind CSS.",
-      link: "",
+      description: "A personal portfolio website built with Next.js and Tailwind CSS, designed to showcase my projects, skills and journey as a software developer so far. The porfolio features interactive sections to highlight my work, skills, and contact information. It is hosted on Vercel, ensuring seamless deployments and continuous integration for future updates.",
+      link: "https://github.com/aatum/Portfolio",
     },
   ];
 
@@ -55,7 +59,6 @@ export default function Home() {
 
   return (
     <div className="font-sans bg-gray-100">
-      {/* Main Navbar */}
       <header className="fixed top-0 w-full bg-gray-800 text-white z-50">
         <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Aatu Marttila</h1>
@@ -76,17 +79,24 @@ export default function Home() {
               href="/resume_aatu1.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm font-medium"
+              className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm font-bold"
             >
               Resume
+            </a>
+            <a
+              href="https://www.theseus.fi/bitstream/handle/10024/871722/Marttila_Aatu.pdf?sequence=2&isAllowed=y"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm font-bold"
+            >
+              Thesis
             </a>
           </div>
         </nav>
       </header>
 
-      {/* Secondary Navbar */}
       <nav className="fixed top-16 w-full bg-gray-100 shadow-lg z-40">
-        <div className="container mx-auto px-4 py-2 flex justify-center space-x-6 text-sm font-medium text-gray-800">
+        <div className="container mx-auto px-4 py-2 flex justify-center space-x-6 text-md font-bold text-gray-800">
           <button
             onClick={() => scrollToSection(aboutRef)}
             className="hover:text-blue-400"
@@ -114,7 +124,6 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center pt-24 pb-10">
         <motion.div
           initial="hidden"
@@ -142,7 +151,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-    {/* About Section */}
     <motion.section
         ref={aboutRef}
         className={`${sectionPadding} text-center flex flex-col items-center`}
@@ -164,7 +172,6 @@ export default function Home() {
         </p>
       </motion.section>
 
-      {/* Skills Section */}
       <motion.section
         ref={skillsRef}
         className={`${sectionPadding} text-center flex flex-col items-center`}
@@ -176,56 +183,55 @@ export default function Home() {
         <SkillsSection />
       </motion.section>
 
-      {/* Projects Section */}
       <motion.section
-        ref={projectsRef}
-        className={`${sectionPadding} text-center`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
+  ref={projectsRef}
+  className={`${sectionPadding} text-center relative`}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+  variants={fadeInUp}
+>
+  <h2 className="text-5xl font-extrabold text-gray-800">Projects</h2>
+  <div className="relative w-full max-w-3xl mx-auto mt-8 overflow-visible">
+    <div className="overflow-hidden">
+      <div
+        className="flex transition-transform duration-500"
+        style={{
+          transform: `translateX(-${currentIndex * 100}%)`,
+        }}
       >
-        <h2 className="text-5xl font-extrabold text-gray-800">Projects</h2>
-        <div className="relative w-full max-w-3xl mx-auto mt-8">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-              }}
-            >
-              {projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="w-full flex-shrink-0 px-4"
-                  style={{ width: "100%" }}
-                >
-                  <ProjectCard
-                    image={project.image}
-                    title={project.title}
-                    description={project.description}
-                    link={project.link}
-                  />
-                </div>
-              ))}
-            </div>
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="w-full flex-shrink-0 px-4"
+            style={{ width: "100%" }}
+          >
+            <ProjectCard
+              image={project.image}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+            />
           </div>
-          <button
-            onClick={handlePrev}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-          >
-            ◀
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
-          >
-            ▶
-          </button>
-        </div>
-      </motion.section>
+        ))}
+      </div>
+    </div>
+    <button
+      onClick={handlePrev}
+      className="absolute top-1/2 left-[-40px] transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded shadow-lg hover:bg-gray-700"
+    >
+      ◀
+    </button>
+    <button
+      onClick={handleNext}
+      className="absolute top-1/2 right-[-40px] transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded shadow-lg hover:bg-gray-700"
+    >
+      ▶
+    </button>
+  </div>
+</motion.section>
 
-      {/* Contact Section */}
+
       <motion.section
         ref={contactRef}
         className={`${sectionPadding} text-center flex flex-col items-center`}
@@ -241,8 +247,8 @@ export default function Home() {
         <div className="mt-12">
           <a
             href="mailto:aatumarttila@gmail.com"
-            className="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded shadow hover:bg-blue-400"
-          >
+            className="mt-4 inline-block px-4 py-2 bg-blue-500 text-white text-sm font-bold rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
+            >
             Let’s connect! 🚀
           </a>
         </div>
