@@ -30,18 +30,25 @@ export default function Home() {
       title: "Siirtoautot",
       description: (
         <>
-          Siirtoautot is a cross-platform vehicle-sharing application that allows users to search for rides across Finland and transfer vehicles free of charge from one location to another. The frontend is built with TypeScript and Next.js, while the backend uses Ruby on Rails and a RESTful API. The app also implements Progressive Web App (PWA) technology, and supports both Android and iOS platforms using a shared codebase. <b><br></br><span className="italic">Please note that the code for this project cannot be shared, as it is owned by the company.</span></b>
+          Siirtoautot was a cross-platform vehicle-sharing application that allowed users to search for rides across Finland and transfer vehicles free of charge. The frontend was built with TypeScript and Next.js, while the backend used Ruby on Rails with a RESTful API. The app also implemented Progressive Web App (PWA) technology and supported both Android and iOS platforms using a shared codebase.
+          <b><br></br><span className="italic">
+            Please note that the code for this project cannot be shared, as it is owned by the company. However, I am more than happy to talk about my experiences with the project. You can watch a demo of the application in the video below.
+          </span></b>
         </>
       ),
-            link: "https://siirtoautot.com",
+      link: "https://www.youtube.com/watch?v=uTMtfvMdjxA",
+      buttonLabel: "Watch Demo", 
     },
     {
       image: "/portfoliopage.jpg",
       title: "Personal Portfolio",
-      description: "A personal portfolio website built with Next.js and Tailwind CSS, designed to showcase my projects, skills and journey as a software developer so far. The porfolio features interactive sections to highlight my work, skills, and contact information. It is hosted on Vercel, ensuring seamless deployments and continuous integration for future updates.",
+      description:
+        "A personal portfolio website built with Next.js and Tailwind CSS, designed to showcase my projects, skills, and journey as a software developer so far. The portfolio features interactive sections to highlight my work, skills, and contact information. It is hosted on Vercel, ensuring seamless deployments and continuous integration for future updates.",
       link: "https://github.com/aatum/Portfolio",
+      buttonLabel: "View Code", 
     },
   ];
+  
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -76,7 +83,7 @@ export default function Home() {
               <FaLinkedin className="text-xl" />
             </a>
             <a
-              href="/resume_aatu1.pdf"
+              href="/aatu_marttila_cv.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm font-bold"
@@ -211,6 +218,7 @@ export default function Home() {
               title={project.title}
               description={project.description}
               link={project.link}
+              buttonLabel={project.buttonLabel} // Pass the correct label
             />
           </div>
         ))}

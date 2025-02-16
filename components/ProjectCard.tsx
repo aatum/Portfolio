@@ -5,9 +5,10 @@ type ProjectCardProps = {
   title: string;
   description: React.ReactNode;
   link: string;
+  buttonLabel: string; // New prop for dynamic button text
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, link }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, link, buttonLabel }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden h-full flex flex-col">
       <img
@@ -25,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, title, description, li
             rel="noopener noreferrer"
             className="inline-block px-4 py-2 bg-blue-500 text-white text-sm font-bold rounded shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition"
           >
-            View Project →
+            {buttonLabel} →
           </a>
         </div>
       </div>
